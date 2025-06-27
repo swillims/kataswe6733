@@ -1,0 +1,2 @@
+module kataswe6733 {
+}
