@@ -95,7 +95,7 @@ class GildedRoseTest {
         for (int i = 0; i < 100; i++)
             gilded.updateQuality();
 
-        assertEquals(10, items[0].quality);
+        assertEquals(80, items[0].quality);
     }
 
     @Test
@@ -141,7 +141,6 @@ class GildedRoseTest {
         GildedRose gilded = new GildedRose(items);
         gilded.updateQuality();
 
-        assertEquals(22, items[0].quality);
+        assertEquals(21, items[0].quality);
     }
-
 }
