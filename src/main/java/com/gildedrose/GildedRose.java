@@ -41,13 +41,23 @@ class GildedRose {
             item.sellIn--;
 
             //All other items degrade by the day
-            item.quality--;
+            int deprecationNumber = 1;
+
+            //items degrade twice as fast if they are conjured
+            //short circuit operator "&&" used to avoid substring index out of bounds
+            if (item.name.toLowerCase().contains("conjured") && item.name.substring(0,8).equalsIgnoreCase("conjured"))
+                    deprecationNumber *= 2;
 
             //items degrade twice as fast after due date
             if (item.sellIn < 0)
-                item.quality--;
+                deprecationNumber *= 2;
+
+            item.quality -= deprecationNumber;
+
+            //item value can't be less than 0
             if (item.quality < 0)
                 item.quality = 0;
+            //item value can't be over 50 unless special case(handled above for legendary item "Sulfuras, Hand of Ragnaros"
             else if (item.quality >= 50)
                 item.quality = 50;
         }

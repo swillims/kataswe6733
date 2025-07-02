@@ -143,4 +143,56 @@ class GildedRoseTest {
 
         assertEquals(21, items[0].quality);
     }
+    @Test
+    public void ConjuredTwiceAsFast()
+    {
+        int base = 10;
+        Item[] items =
+                {
+                new Item("Cheezits", 5, base),
+                new Item("Conjured Cheezits", 5, base)
+                };
+        GildedRose gilded = new GildedRose(items);
+        gilded.updateQuality();
+
+        int cheezitDif = base - items[0].quality;
+        int conjuredDif = base - items[1].quality;
+        //assertEquals(9, items[0].quality);
+        //assertEquals(8, items[1].quality);
+        assertEquals(2, conjuredDif/cheezitDif);
+    }
+
+    @Test
+    public void ConjuredTwiceAsFastAfterExpirationDate()
+    {
+        int base = 10;
+        Item[] items =
+                {
+                        new Item("Cheezits", -1, base),
+                        new Item("Conjured Cheezits", -1, base)
+                };
+        GildedRose gilded = new GildedRose(items);
+        gilded.updateQuality();
+
+        int cheezitDif = base - items[0].quality;
+        int conjuredDif = base - items[1].quality;
+        //assertEquals(9, items[0].quality);
+        //assertEquals(8, items[1].quality);
+        assertEquals(2, conjuredDif/cheezitDif);
+    }
+
+    @Test
+    public void CaseSensitive()
+    {
+        int base = 10;
+        Item[] items =
+                {
+                        new Item("Conjured Cheezits", 0, base),
+                        new Item("conjured Cheezits", 0, base)
+                };
+        GildedRose gilded = new GildedRose(items);
+        gilded.updateQuality();
+
+        assertEquals(items[0].quality, items[1].quality);
+    }
 }
