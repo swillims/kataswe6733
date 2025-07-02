@@ -1,3 +1,13 @@
+# Our Technology Used
+
+We decided to use Microsoft Teams for face-to-face-like collaboration and IntelliJ IDEA for programming.
+ 
+Teams enables real-time communication through video, audio, and screen sharing, making it ideal for simulating an in-person experience.
+ 
+IntelliJ IDEA offers powerful features for code navigation, debugging, and refactoring, making it a strong choice for collaborative development. Its support for real-time code sharing, and integrated testing tools.
+
+
+----------------------------------------------------
 # Gilded Rose starting position in Java
 
 ## Run the TextTest Fixture from Command-Line
